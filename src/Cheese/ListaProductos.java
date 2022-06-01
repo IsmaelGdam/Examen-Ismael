@@ -49,24 +49,24 @@ public class ListaProductos {
      * @return objeto producto añadido y, si ya existe, devuleve nulo
      */
     public Producto addProducto(Producto prod) {
-        
+        if(check_null(prod.getcode())) return null;
         if (listaP.containsKey(prod.getcode())) {
             // System.out.println("Producto con código duplicado");
             return null;
-        }
+            }
         n++;
         this.setN(n);
         listaP.put(prod.getcode(), prod);
         return prod;
     }
-
+    
     /**
      * Elimina uno de los productos que tengamos registrados
      * @param codigo busca los productos segun el codigo que tengan vinculado
      * @return devuelve el producto eliminado
      */
     public Producto eliminarProducto(String codigo) { 
-        
+        if(check_null(codigo)) return null;
         Producto prod = buscarProducto(codigo);
         if (prod != null) {
         listaP.remove(codigo);
@@ -83,7 +83,7 @@ public class ListaProductos {
      */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
-        
+        if(check_null(codigo)) return null;
         if (!listaP.containsKey(codigo)) {
             return prod;
         }
