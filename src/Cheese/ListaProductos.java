@@ -43,6 +43,11 @@ public class ListaProductos {
         if (campo.replace(" ","") == "")  return true; else return false;
     }
 
+    /**
+     * Añade un nuevo producto a nuestra lista de productos creada
+     * @param prod producto que se desea agregar
+     * @return objeto producto añadido y, si ya existe, devuleve nulo
+     */
     public Producto addProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -55,6 +60,11 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Elimina uno de los productos que tengamos registrados
+     * @param codigo busca los productos segun el codigo que tengan vinculado
+     * @return devuelve el producto eliminado
+     */
     public Producto eliminarProducto(String codigo) { 
         
         Producto prod = buscarProducto(codigo);
@@ -66,6 +76,11 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Busca productos registrados existentes
+     * @param codigo busca los productos registrados segun el codigo que tengan asociado
+     * @return devuelve una lista de los productos con ese codigo registrados
+     */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
         
@@ -77,12 +92,20 @@ public class ListaProductos {
         }
     }
 
+    /**
+     * Genera una lista con todos los productos que tengamos registrados
+     * @return devuelve una lista con todos los productos registrados
+     */
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> prodsList = new ArrayList<>();
         prodsList.addAll(listaP.values());
         return prodsList;
     }
     
+    /**
+     * Busca el numero total de productos que tengamos registrados
+     * @return Devuelve el numero total de productos que tengamos registrados
+     */
     public int totalProductos(){
             return this.getN();
     }
